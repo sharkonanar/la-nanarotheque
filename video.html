@@ -2,160 +2,23 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture Vidéo - Archives Mystères</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Styles spécifiques à la page de lecture */
-        body { background-color: #000; color: #fff; }
-        
-        .video-container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #888;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .back-link:hover { color: #fff; }
-
-        .player-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 15px;
-            background: #111;
-        }
-
-        .player-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        h1 { 
-    margin: 20px 0 10px 0; 
-    font-size: 1.8rem; 
-    color: #fff; 
-}
-
-.description { 
-    color: #ccc; 
-    line-height: 1.7; 
-    font-size: 1.1rem; 
-    border-bottom: 1px solid #333; 
-    padding-bottom: 30px;
-    margin-bottom: 20px;
-    /* Sécurités pour l'affichage complet */
-    height: auto !important; 
-    min-height: 50px;
-    overflow: visible !important;
-    display: block !important;
-}
-
-        /* Zone Commentaires */
-        .comment-section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .comment-box {
-            background: #111;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #222;
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            background: #000;
-            border: 1px solid #333;
-            color: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            resize: none;
-            box-sizing: border-box;
-        }
-
-        .btn-comm {
-            margin-top: 10px;
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    </style>
-</head>
+    <title>Lecture - Nanar TV</title>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
 
-    <div class="video-container">
-        <a href="index.html" class="back-link">← Retour aux archives</a>
+    <header class="banner">
+        <img src="images/banniere.jpg" alt="Bannière">
+    </header>
+
+    <main class="container-video">
+        <div id="video-details">
+            </div>
         
-        <div class="player-wrapper">
-            <iframe id="v-frame" src="" allowfullscreen></iframe>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn-voir" style="display: inline-block; width: 200px;">RETOUR À L'ACCUEIL</a>
         </div>
+    </main>
 
-        <h1 id="v-titre">Chargement...</h1>
-        <p id="v-resume" class="description"></p>
-    </div>
-
-    <section class="comment-section">
-        <div class="comment-box">
-            <h3>Commentaires</h3>
-            <textarea placeholder="Partagez votre avis sur ce mystère..."></textarea>
-            <button class="btn-comm">Publier le commentaire</button>
-        </div>
-    </section>
-
-    <script>
-        // 1. La liste des vidéos (doit être identique à celle de script.js)
-        const videos = [
-            {
-                 id: "lemonstredulochness",
-        titre: "Le Monstre du Loch Ness",
-        resume: "Le monstre de ce fameux lac ne cesse de faire parler de lui... Enquête sur ce cryptide",
-        image: "images/nessie.jpg",
-        urlVideo: "https://www.youtube.com/embed/axESWHUrHw4"
-            },
-            {
-                id: "video2",
-                titre: "Titre de la Vidéo 2",
-                resume: "Résumé de la deuxième vidéo...",
-                urlVideo: "https://www.youtube.com/embed/autre_code"
-            }
-        ];
-
-        // 2. Récupération de l'ID dans l'URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('id');
-
-        // 3. Trouver la vidéo et l'afficher
-        const video = videos.find(v => v.id === videoId);
-
-        if (video) {
-            document.getElementById('v-titre').textContent = video.titre;
-            document.getElementById('v-resume').textContent = video.resume;
-            document.getElementById('v-frame').src = video.urlVideo;
-            document.title = video.titre + " - Archives Mystères";
-        } else {
-            document.getElementById('v-titre').textContent = "Vidéo introuvable";
-            document.getElementById('v-resume').textContent = "Le lien semble être rompu ou la vidéo a été supprimée.";
-        }
-    </script>
-
+    <script src="video-script.js"></script>
 </body>
 </html>
