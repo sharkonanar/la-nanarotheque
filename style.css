@@ -1,77 +1,114 @@
-/* RESET COMPLET */
+/* RESET DOUX */
 * {
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #000 !important;
-    color: white !important;
+    background-color: #000;
+    color: white;
     font-family: Arial, sans-serif;
-    text-align: center; /* Centre tout par défaut */
 }
 
-/* BANNIÈRE */
+/* BANNIÈRE CENTRÉE */
 .banner {
-    display: block !important;
-    width: 100% !important;
-    padding: 60px 20px !important;
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
     background-color: #111;
-    text-align: center !important;
 }
 
 .banner h1 {
-    font-size: 3rem !important;
-    margin-bottom: 15px !important;
-    display: block !important;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .banner p {
-    color: #888 !important;
-    font-size: 1.2rem !important;
-    display: block !important;
-    width: 100% !important;
+    color: #888;
+    font-size: 1.2rem;
 }
 
-/* GRILLE - LA PARTIE CRITIQUE */
+/* GRILLE CENTRÉE */
 .container {
-    display: grid !important;
-    /* Force 3 colonnes sur PC, 2 sur tablette, 1 sur mobile */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 20px !important;
-    padding: 40px 20px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important; /* Centre la grille */
+    display: grid;
+    grid-template-columns: 1fr; /* Une seule colonne par défaut */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto; /* Le "auto" centre la grille sur la page */
+    padding: 20px;
 }
 
-/* CARTES */
+/* CARTE HORIZONTALE (Image à gauche, texte à droite) */
 .card {
-    background-color: #fff !important;
-    border-radius: 10px !important;
-    overflow: hidden !important;
-    color: #000 !important;
-    text-align: left !important; /* Le texte dans les cartes reste à gauche */
-    display: flex !important;
-    flex-direction: column !important;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    color: #000;
+    display: flex; /* Active le mode côte à côte */
+    flex-direction: row; 
+    align-items: stretch;
+    min-height: 200px;
+}
+
+/* IMAGE À GAUCHE */
+.card-image {
+    flex: 0 0 40%; /* L'image prend 40% de la largeur */
+    max-width: 400px;
 }
 
 .card-image img {
-    width: 100% !important;
-    height: 180px !important;
-    object-fit: cover !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
+/* TEXTE À DROITE */
 .card-content {
-    padding: 20px !important;
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Texte aligné à gauche dans la carte */
 }
 
+.card-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* BOUTON BIEN VISIBLE */
 .btn-voir {
-    display: inline-block !important;
-    background-color: #000 !important;
-    color: #fff !important;
-    padding: 10px 20px !important;
-    text-decoration: none !important;
-    border-radius: 5px !important;
-    margin-top: 10px !important;
+    display: inline-block;
+    align-self: flex-start; /* Aligne le bouton à gauche du texte */
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-voir:hover {
+    background-color: #ff0000;
+}
+
+/* ADAPTATION MOBILE (Empiler l'un sur l'autre si l'écran est petit) */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
+    .card-image {
+        flex: none;
+        width: 100%;
+        height: 200px;
+    }
 }
