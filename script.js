@@ -38,14 +38,12 @@ window.addEventListener('load', function() {
                                 ${film.resume || 'Aucun résumé.'}
                             </p>
                             
-                           <div style="margin-top: auto;">
-                                <div style="font-weight: bold; color: #007bff; text-align: right; margin-bottom: 5px; font-size: 0.9em;">
+                           <div style="background: #000; border: 1px solid #444; height: 45px; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                                <span style="font-weight: bold; color: #007bff; font-size: 0.9em; text-transform: uppercase;">
                                     VOIR LA VIDÉO >
-                                </div>
-                                
-                                <div style="background: #000; border: 1px solid #444; height: 40px; border-radius: 4px; width: 100%;">
-                                </div>
+                                </span>
                             </div>
+
                         </div> 
                     </a>
                 </div>
