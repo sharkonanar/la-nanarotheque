@@ -1,11 +1,11 @@
-// 1. TA BASE DE DONNÉES (Ajoute tes nanars ici)
+// 1. TA BASE DE DONNÉES
 const videos = [
     {
         id: "hitman-le-cobra",
         titre: "Hitman le Cobra",
         resume: "Un doublage légendaire pour un film d'action aux répliques cultes.",
         image: "images/hitman.jpg",
-        note: 5 // Nombre de têtes de mort (1 à 5)
+        note: 5
     },
     {
         id: "shark-island",
@@ -30,22 +30,9 @@ function afficherVideos() {
     const fin = debut + videosParPage;
     const selection = videos.slice(debut, fin);
 
-    // On remplace la tête de mort par le requin
-let requins = "🦈".repeat(video.note || 0); 
-
-// Et n'oublie pas de changer le nom dans le HTML juste en dessous :
-card.innerHTML = `
-    <div class="card-image">
-        <img src="${video.image}" alt="">
-    </div>
-    <div class="card-content">
-        <div>
-            <div class="rating">${requins}</div> <h3>${video.titre}</h3>
-            <p>${video.resume}</p>
-        </div>
-        <a href="video.html?id=${video.id}" class="btn-voir">VOIR LE NANAR</a>
-    </div>
-`;
+    selection.forEach(video => {
+        // --- LA LOGIQUE DES REQUINS ---
+        let requins = "🦈".repeat(video.note || 0); 
         
         const card = document.createElement('article');
         card.className = 'card';
@@ -55,7 +42,7 @@ card.innerHTML = `
             </div>
             <div class="card-content">
                 <div>
-                    <div class="rating">${têtes}</div>
+                    <div class="rating">${requins}</div>
                     <h3>${video.titre}</h3>
                     <p>${video.resume}</p>
                 </div>
@@ -65,12 +52,15 @@ card.innerHTML = `
         grid.appendChild(card);
     });
 
-    // Mise à jour de la pagination
+    // Pagination
     const infoPage = document.getElementById('page-info');
     if (infoPage) infoPage.innerText = `Page ${pageActuelle}`;
     
-    document.getElementById('btn-prev').style.visibility = (pageActuelle === 1) ? "hidden" : "visible";
-    document.getElementById('btn-next').style.visibility = (videos.length > fin) ? "visible" : "hidden";
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    
+    if (btnPrev) btnPrev.style.visibility = (pageActuelle === 1) ? "hidden" : "visible";
+    if (btnNext) btnNext.style.visibility = (videos.length > fin) ? "visible" : "hidden";
 }
 
 // 3. ÉVÉNEMENTS
@@ -86,5 +76,5 @@ document.getElementById('btn-next')?.addEventListener('click', () => {
     window.scrollTo(0, 0);
 });
 
-// Lancement au démarrage
+// Lancement
 afficherVideos();
