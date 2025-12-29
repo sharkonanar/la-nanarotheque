@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture Vidéo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .video-player { max-width: 800px; margin: 20px auto; text-align: center; color: white;}
+        iframe { width: 100%; height: 450px; border-radius: 15px; border: none; }
+        .comment-section { max-width: 800px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; }
+    </style>
+</head>
+<body>
+    <div class="video-player">
+        <a href="index.html" style="color: gray; text-decoration: none;">← Retour</a>
+        <h1 id="v-titre"></h1>
+        <iframe id="v-frame" src="" allowfullscreen></iframe>
+        <p id="v-resume" style="margin-top: 20px; font-size: 1.1rem;"></p>
+    </div>
+
+    <div class="comment-section">
+        <h3>Commentaires</h3>
+        <textarea style="width:100%; height:80px; border-radius: 10px; padding:10px;" placeholder="Laissez un commentaire..."></textarea>
+        <button style="margin-top:10px; padding:10px 20px; cursor:pointer;">Envoyer</button>
+    </div>
+
+    <script>
+        // Ce script récupère les infos de la vidéo choisie
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        
+        // On va chercher dans la liste de script.js (normalement via un import, ici on simule)
+        // Pour cet exemple simple, tu peux copier la liste 'videos' ici aussi.
+    </script>
+</body>
+</html>
