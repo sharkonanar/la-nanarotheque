@@ -143,3 +143,34 @@ body {
         height: 180px;
     }
 }
+/* --- 7. PAGINATION (BOUTONS BAS DE PAGE) --- */
+.pagination {
+    display: flex;            /* Aligne les boutons et le texte sur une ligne */
+    justify-content: center;  /* Centre l'ensemble au milieu de l'écran */
+    align-items: center;      /* Aligne verticalement */
+    gap: 25px;                /* Espace entre les boutons */
+    margin: 50px 0;           /* Marge en haut et en bas pour respirer */
+    padding-bottom: 20px;
+}
+
+#page-info {
+    font-weight: bold;
+    color: #888;              /* Gris pour ne pas attirer trop l'attention */
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* On réutilise le style de tes boutons "voir la vidéo" pour la cohérence */
+.pagination .btn-voir {
+    cursor: pointer;
+    border: none;             /* Enlève la bordure par défaut des boutons HTML */
+    min-width: 120px;         /* Largeur minimum pour que les boutons soient égaux */
+    text-align: center;
+}
+
+/* Cache les boutons quand ils ne sont pas nécessaires (géré par le JS) */
+#btn-prev[style*="visibility: hidden"], 
+#btn-next[style*="visibility: hidden"] {
+    pointer-events: none;
+}
