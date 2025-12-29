@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
             const requins = "🦈".repeat(film.note || 0);
 
             grille.innerHTML += `
-                <div style="background: #1a1a1a; border: border: 2px solid white; border-radius: 10px; overflow: hidden; height: 250px;">
+                <div style="background: #1a1a1a; border: 2px solid white; border-radius: 10px; overflow: hidden; height: 250px;">
                     <a href="video.html?id=${film.id}" style="display: flex; text-decoration: none; color: white; height: 100%;">
                         
                         <div style="width: 200px; flex-shrink: 0;">
