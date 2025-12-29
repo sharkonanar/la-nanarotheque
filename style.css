@@ -1,4 +1,4 @@
-/* --- 1. RÉGLAGES GÉNÉRAUX --- */
+/* --- 1. RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,24 +6,21 @@
 }
 
 body {
-    background-color: #000; /* Noir profond pour Étrange et Bizarre TV */
+    background-color: #000;
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
 }
 
-/* --- 2. BANNIÈRE (HAUT DU SITE) --- */
+/* --- 2. BANNIÈRE --- */
 .banner {
-    width: 100%;
     padding: 60px 20px;
     text-align: center;
     background-color: #111;
-    border-bottom: 2px solid #222;
 }
 
 .banner h1 {
     font-size: 3rem;
-    color: #ff0000; /* Rouge mystère */
+    color: #ff0000;
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-bottom: 10px;
@@ -31,101 +28,85 @@ body {
 
 .banner p {
     color: #888;
-    font-size: 1.2rem;
-    font-style: italic;
+    font-size: 1.1rem;
 }
 
-/* --- 3. CONTENEUR DES CARTES (GRILLE) --- */
+/* --- 3. GRILLE EN DEUX COLONNES --- */
 .container {
-    max-width: 900px; /* Largeur idéale pour des cartes horizontales */
-    margin: 40px auto; /* Centre la grille sur la page */
+    display: grid;
+    /* Force 2 colonnes égales tant qu'il y a de la place */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
     padding: 0 20px;
-    display: flex;
-    flex-direction: column; /* Empile les cartes les unes sous les autres */
-    gap: 30px; /* Espace entre chaque carte */
 }
 
-/* --- 4. LA CARTE (IMAGE À GAUCHE, TEXTE À DROITE) --- */
+/* --- 4. CARTES VERTICALES (Image en haut) --- */
 .card {
     background-color: #fff;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    display: flex; /* Active le mode côte à côte */
-    flex-direction: row; /* Image à gauche, texte à droite */
-    width: 100%;
-    min-height: 250px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column; /* Image AU-DESSUS du texte */
     transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.02); /* Petit effet de zoom au survol */
+    transform: translateY(-5px);
 }
 
-/* BLOC IMAGE */
 .card-image {
-    flex: 0 0 40%; /* L'image prend exactement 40% de la largeur */
-    background-color: #222;
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour que toutes les images soient alignées */
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* L'image remplit son cadre sans se déformer */
-    display: block;
+    object-fit: cover;
 }
 
-/* BLOC TEXTE */
 .card-content {
-    flex: 1; /* Prend tout le reste de la place (60%) */
-    padding: 30px;
+    padding: 20px;
+    color: #333;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espace le titre du bouton */
-    color: #333; /* Texte sombre sur fond blanc */
+    flex-grow: 1;
     text-align: left;
 }
 
 .card-content h3 {
-    font-size: 1.6rem;
     margin-bottom: 10px;
+    font-size: 1.4rem;
     color: #000;
 }
 
 .card-content p {
-    font-size: 1rem;
-    color: #555;
     margin-bottom: 20px;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Pousse le bouton vers le bas pour que les boutons soient alignés */
 }
 
-/* --- 5. BOUTON VOIR LA VIDÉO --- */
+/* --- 5. BOUTON --- */
 .btn-voir {
     display: inline-block;
     background-color: #000;
     color: #fff;
-    padding: 12px 25px;
+    padding: 10px 20px;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 5px;
     font-weight: bold;
-    text-transform: uppercase;
-    transition: background 0.3s;
-    align-self: flex-start; /* Aligne le bouton à gauche */
+    text-align: center;
 }
 
 .btn-voir:hover {
-    background-color: #ff0000; /* Devient rouge au survol */
+    background-color: #ff0000;
 }
 
-/* --- 6. ADAPTATION MOBILE --- */
-@media (max-width: 768px) {
-    .card {
-        flex-direction: column; /* L'image repasse au dessus sur téléphone */
-    }
-    .card-image {
-        width: 100%;
-        height: 200px;
-    }
-    .banner h1 {
-        font-size: 2rem;
+/* --- 6. MOBILE (1 colonne sur téléphone) --- */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
     }
 }
