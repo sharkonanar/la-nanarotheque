@@ -5,7 +5,7 @@ const videos = [
         titre: "Le Monstre du Loch Ness",
         resume: "Le monstre de ce fameux lac ne cesse de faire parler de lui... Enquête sur ce cryptide",
         image: "images/nessie.jpg",
-        urlVideo: "https://www.youtube.com/watch?v=axESWHUrHw4" // Exemple YouTube
+        urlVideo: "https://www.youtube.com/embed/axESWHUrHw4" // Exemple YouTube
     },
     {
         id: "video2",
