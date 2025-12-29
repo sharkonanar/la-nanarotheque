@@ -30,10 +30,22 @@ function afficherVideos() {
     const fin = debut + videosParPage;
     const selection = videos.slice(debut, fin);
 
-    // --- C'EST ICI QU'ON AJOUTE LA LOGIQUE DES TÊTES DE MORT ---
-    selection.forEach(video => {
-        // On génère les têtes de mort selon la note (ex: 3 -> 💀💀💀)
-        let têtes = "💀".repeat(video.note || 0); 
+    // On remplace la tête de mort par le requin
+let requins = "🦈".repeat(video.note || 0); 
+
+// Et n'oublie pas de changer le nom dans le HTML juste en dessous :
+card.innerHTML = `
+    <div class="card-image">
+        <img src="${video.image}" alt="">
+    </div>
+    <div class="card-content">
+        <div>
+            <div class="rating">${requins}</div> <h3>${video.titre}</h3>
+            <p>${video.resume}</p>
+        </div>
+        <a href="video.html?id=${video.id}" class="btn-voir">VOIR LE NANAR</a>
+    </div>
+`;
         
         const card = document.createElement('article');
         card.className = 'card';
