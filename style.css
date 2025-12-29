@@ -1,45 +1,64 @@
+/* --- CONFIGURATION GÉNÉRALE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #000; color: #fff; font-family: sans-serif; }
 
-/* BANNIERE */
+/* BANNIÈRE */
 .banner { width: 100%; display: block; line-height: 0; }
 .banner img { width: 100%; height: auto; display: block; }
 
-/* GRILLE */
+/* LA GRILLE : Crée les deux colonnes (Gauche et Droite) */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 COLONNES */
-    gap: 20px;
+    grid-template-columns: 1fr 1fr; /* LES 2 COLONNES CÔTE À CÔTE */
+    gap: 20px; /* Espace entre les deux colonnes */
 }
 
-/* CASES */
+/* LA CASE : Un film présenté horizontalement */
 .card {
     background: #111;
     border: 1px solid #222;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
+    display: flex;          /* MET L'IMAGE À GAUCHE ET LE TEXTE À DROITE */
+    flex-direction: row;    /* Force l'image à gauche */
+    height: 220px;          /* Hauteur fixe pour aligner les cases */
+    overflow: hidden;
 }
 
+/* L'IMAGE (À GAUCHE DE LA CASE) */
+.card-image {
+    width: 150px;           /* Largeur de l'affiche */
+    min-width: 150px;
+}
 .card-image img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
 }
 
+/* LE CONTENU (À DROITE DE LA CASE) */
 .card-content {
+    flex: 1;                /* Prend tout l'espace à droite de l'image */
     padding: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Aligne Titre, Résumé et Lien de haut en bas */
 }
 
-.rating { color: #0096ff; font-size: 1.2rem; margin-bottom: 5px; }
-h3 { margin-bottom: 10px; }
-p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; }
+.rating { color: #0096ff; margin-bottom: 5px; }
+h3 { font-size: 1.1rem; margin-bottom: 5px; }
 
+/* LE RÉSUMÉ */
+p { 
+    color: #aaa; 
+    font-size: 0.85rem; 
+    flex-grow: 1;          /* POUSSE LE LIEN SOUS LE RÉSUMÉ */
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+/* LE LIEN POUR VOIR LA VIDÉO (SOUS LE RÉSUMÉ) */
 .btn-voir {
     background: #0096ff;
     color: #fff;
@@ -50,4 +69,5 @@ p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; }
     font-weight: bold;
 }
 
+/* PAGINATION */
 .pagination { display: flex; justify-content: center; gap: 20px; padding: 40px; }
