@@ -1,27 +1,25 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body { background-color: #000; color: #fff; font-family: sans-serif; }
 
 /* BANNIERE */
 .banner { width: 100%; display: block; line-height: 0; }
 .banner img { width: 100%; height: auto; display: block; }
 
-/* GRILLE (Le container) */
+/* GRILLE */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* FORCE LES 2 COLONNES */
+    grid-template-columns: 1fr 1fr; /* 2 COLONNES */
     gap: 20px;
 }
 
-/* LES CASES */
+/* CASES */
 .card {
     background: #111;
     border: 1px solid #222;
     border-radius: 8px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -30,26 +28,17 @@ body { background-color: #000; color: #fff; font-family: sans-serif; }
     width: 100%;
     height: 200px;
     object-fit: cover;
-    display: block;
 }
 
 .card-content {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
-/* REQUINS ET TEXTE */
-.rating { 
-    color: #0096ff; 
-    font-size: 1.2rem; 
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 5px #0096ff);
-}
-
-h3 { margin-bottom: 10px; font-size: 1.2rem; }
-p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; flex-grow: 1; }
+.rating { color: #0096ff; font-size: 1.2rem; margin-bottom: 5px; }
+h3 { margin-bottom: 10px; }
+p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; }
 
 .btn-voir {
     background: #0096ff;
@@ -61,6 +50,4 @@ p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px; flex-grow: 1; }
     font-weight: bold;
 }
 
-/* PAGINATION */
 .pagination { display: flex; justify-content: center; gap: 20px; padding: 40px; }
-button { padding: 10px 20px; cursor: pointer; }
