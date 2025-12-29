@@ -10,6 +10,7 @@ const videos = [
         id: "2",
         titre: "L'Attaque de la Tomate",
         resume: "Un film culte où des légumes prennent le pouvoir.",
+        note: 5
         videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     }
 ];
