@@ -2,116 +2,49 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecture Vidéo - Nanar vidéo club</title>
+    <title>Lecteur VHS</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* --- DESIGN DE LA PAGE --- */
-        body { 
-            background-color: #000; 
-            color: #fff; 
-            margin: 0; 
-            padding: 0; 
-            font-family: sans-serif; 
+        body { background: #000; color: white; font-family: sans-serif; text-align: center; padding: 50px; }
+        .vhs-screen { 
+            width: 80%; max-width: 900px; margin: 20px auto; 
+            border: 15px solid #222; border-radius: 10px; 
+            background: #000; aspect-ratio: 16/9; 
         }
-
-        /* Bannière */
-        .banner { width: 100%; background: #000; line-height: 0; }
-        .banner img { width: 100%; height: auto; display: block; }
-
-        /* Conteneur principal */
-        .video-container { 
-            max-width: 900px; 
-            margin: 20px auto; 
-            padding: 20px; 
-        }
-
-        .back-link { 
-            color: #0096ff; 
-            text-decoration: none; 
-            display: inline-block; 
-            margin-bottom: 20px; 
-            font-weight: bold;
-        }
-
-        /* Le lecteur vidéo */
-        .player-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 15px;
-            background: #111;
-            box-shadow: 0 0 30px rgba(0, 150, 255, 0.2);
-        }
-        .player-wrapper iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
-        }
-
-        h1 { margin-top: 25px; font-size: 2.2rem; }
-        .description { color: #ccc; margin-top: 15px; line-height: 1.6; font-size: 1.1rem; }
-
-        /* Commentaires */
-        .comment-section { max-width: 900px; margin: 20px auto; padding: 20px; }
-        .comment-box { background: #111; padding: 20px; border-radius: 10px; border: 1px solid #222; }
-        textarea { 
-            width: 100%; height: 100px; background: #000; color: #fff; 
-            border: 1px solid #333; margin-top: 10px; padding: 10px; border-radius: 5px; 
-            box-sizing: border-box; resize: none;
-        }
-        .btn-comm { 
-            background: #0096ff; color: white; border: none; padding: 10px 20px; 
-            border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; 
-        }
+        iframe { width: 100%; height: 100%; border: none; }
+        .back-btn { color: #888; text-decoration: none; font-size: 0.9rem; }
+        .back-btn:hover { color: white; }
+        h1 { font-family: 'Arial Black', sans-serif; text-transform: uppercase; margin-top: 30px; }
     </style>
 </head>
 <body>
 
-    <header class="banner">
-        <img src="images/nanarbann.png" alt="Bannière Nanar TV">
-    </header>
+    <a href="index.html" class="back-btn">← RETOUR AU RAYONNAGE</a>
 
-    <div class="video-container">
-        <a href="index.html" class="back-link">← Retour à l'accueil</a>
-        
-        <div id="video-content">
-            <p>Chargement du nanar en cours...</p>
+    <div class="vhs-screen" id="player">
         </div>
-    </div>
 
-    <div class="comment-section">
-        <div class="comment-box">
-            <h3>Commentaires</h3>
-            <textarea placeholder="Laissez un commentaire sur ce chef-d'œuvre..."></textarea>
-            <button class="btn-comm">Envoyer</button>
-        </div>
-    </div>
+    <h1 id="movie-title">CHARGEMENT...</h1>
 
     <script src="videos.js"></script>
 
     <script>
-        // On récupère l'ID passé dans l'URL (ex: video.html?id=1)
+        // 1. On récupère l'ID envoyé dans l'URL (ex: ?id=adam-eve)
         const params = new URLSearchParams(window.location.search);
-        const videoId = params.get('id');
-        const container = document.getElementById('video-content');
+        const idDuFilm = params.get('id');
 
-        // On cherche le film dans ton tableau 'videos' (qui vient de videos.js)
-        // Note : si ton tableau s'appelle autrement dans videos.js, change le mot 'videos' ci-dessous
-        const film = videos.find(v => v.id == videoId);
+        // 2. On cherche le film correspondant dans ton fichier videos.js
+        const filmTrouve = videos.find(f => f.id === idDuFilm);
 
-        if (film) {
-            container.innerHTML = `
-                <div class="player-wrapper">
-                    <iframe src="${film.videoUrl}" allowfullscreen></iframe>
-                </div>
-                <h1>${film.titre}</h1>
-                <p class="description">${film.resume}</p>
+        // 3. Si on le trouve, on met à jour la page
+        if (filmTrouve) {
+            document.getElementById('movie-title').textContent = filmTrouve.titre;
+            document.getElementById('player').innerHTML = `
+                <iframe src="${filmTrouve.url}?autoplay=1" allow="autoplay; fullscreen"></iframe>
             `;
-            document.title = film.titre + " - Lecture";
         } else {
-            container.innerHTML = "<h1>Oups !</h1><p>Ce film est introuvable dans nos archives.</p>";
+            document.getElementById('movie-title').textContent = "Film non trouvé";
         }
     </script>
-
 </body>
 </html>
