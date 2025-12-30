@@ -6,21 +6,21 @@ body {
     font-family: sans-serif; 
 }
 
-/* LE MEUBLE */
+/* LE MEUBLE : 5 colonnes de 100px, centrées */
 #video-grid {
     display: grid;
-    grid-template-columns: repeat(5, 130px); /* Largeur fixe pour les 5 colonnes */
+    grid-template-columns: repeat(5, 100px); 
     justify-content: center; 
-    gap: 20px;
-    padding: 40px;
+    gap: 15px;
+    padding: 50px 20px;
     margin: 0 auto;
 }
 
-/* LA BOÎTE : Elle s'adapte à l'image qu'elle contient */
+/* LA BOÎTE : On fixe la largeur et on verrouille le ratio */
 .vhs-box {
     position: relative;
-    width: 130px; 
-    /* On ne fixe plus la hauteur ici, c'est l'image qui va la pousser */
+    width: 100px; /* Largeur fine d'une tranche */
+    aspect-ratio: 1 / 3.5; /* Définit une forme de rectangle vertical parfait */
     background: #000;
     border: 1px solid #333;
     overflow: hidden; 
@@ -28,30 +28,33 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* LA TEXTURE : Elle s'affiche ENTIÈRE et dicte la taille de la boîte */
+/* LA TEXTURE : Elle remplit tout le cadre sans être rognée */
 .vhs-tranche-img {
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto; /* L'image garde ses proportions d'origine sans être bouffée */
+    height: 100%;
+    object-fit: fill; /* Étire la texture pile sur la boîte pour ne rien perdre */
     z-index: 1;
 }
 
-/* LE TITRE VERTICAL */
+/* LE TITRE : Vertical et centré */
 .vhs-title {
     position: absolute;
     z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    width: 250px; /* Réduit pour ne pas sortir si la cassette est courte */
+    width: 300px; /* Longueur de la zone de texte */
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-    text-shadow: 2px 2px 5px #000;
+    text-shadow: 1px 1px 3px #000;
     pointer-events: none;
     white-space: nowrap;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* L'AFFICHE (Survol) */
@@ -61,18 +64,19 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Elle prend toute la place de la tranche dispo */
+    object-fit: cover; /* L'affiche remplit toute la tranche au survol */
     opacity: 0;
     z-index: 3;
     transition: opacity 0.3s ease;
 }
 
-/* SURVOL */
+/* EFFET SURVOL */
 .vhs-box:hover {
-    transform: scale(1.08);
+    transform: scale(1.1);
     border-color: red;
     z-index: 10;
 }
+
 .vhs-box:hover .vhs-poster {
     opacity: 1;
 }
