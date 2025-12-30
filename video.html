@@ -57,42 +57,39 @@
             </div>
     </div>
 
-    <script src="videos.js"></script>
+ <script>
+    // 1. On récupère l'ID (ex: 1)
+    const params = new URLSearchParams(window.location.search);
+    const filmId = params.get('id');
+    
+    // 2. On cherche le film dans videos.js
+    const film = videos.find(v => v.id === filmId);
 
-    <script>
-        // 1. On récupère l'ID dans l'URL (ex: ?id=bronx-2)
-        const params = new URLSearchParams(window.location.search);
-        const filmId = params.get('id');
+    const playerContainer = document.getElementById('player-container');
+    const titleElement = document.getElementById('movie-title');
 
-        // 2. On cherche le film correspondant dans ton fichier videos.js
-        const film = videos.find(v => v.id === filmId);
+    if (film) {
+        titleElement.textContent = film.titre;
 
-        const playerContainer = document.getElementById('player-container');
-        const titleElement = document.getElementById('movie-title');
-
-        if (film) {
-            // Affiche le titre du film
-            titleElement.textContent = film.titre;
-            
-            // Correction automatique du lien (change "watch?v=" en "embed/")
-            let finalUrl = film.url;
-            if (finalUrl.includes("watch?v=")) {
-                finalUrl = finalUrl.replace("watch?v=", "embed/");
-            }
-
-            // 3. On injecte l'iframe avec le lien corrigé
-            playerContainer.innerHTML = `
-                <iframe 
-                    src="${finalUrl}" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>`;
-        } else {
-            // Si l'ID n'est pas trouvé
-            titleElement.textContent = "Film non trouvé";
-            playerContainer.innerHTML = "<p style='padding:20px;'>Vérifie l'ID dans ton fichier videos.js</p>";
+        // SECURITÉ : On s'assure que le lien est au bon format pour YouTube
+        let videoUrl = film.url;
+        if (videoUrl.includes("watch?v=")) {
+            videoUrl = videoUrl.replace("watch?v=", "embed/");
         }
-    </script>
+
+        // 3. On injecte l'iframe proprement
+        playerContainer.innerHTML = `
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="${videoUrl}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>`;
+    } else {
+        titleElement.textContent = "Film non trouvé";
+    }
+</script>
 </body>
 </html>
