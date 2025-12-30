@@ -1,7 +1,7 @@
-/* 1. Le fond et la bannière (en haut du fichier) */
+/* 1. RÉGLAGES GÉNÉRAUX */
 body { 
     margin: 0; 
-    background: #0a0a0a; 
+    background: #0a0a0a; /* Fond noir pour l'ambiance vidéoclub */
     color: white; 
     font-family: 'Arial Black', sans-serif;
 }
@@ -12,29 +12,36 @@ body {
     display: block;
 }
 
-/* 2. LE RAYONNAGE : C'est ici que la magie opère */
+/* 2. LE RAYONNAGE (Grille de 5) */
 #video-grid { 
     display: grid; 
-    /* ICI : 5 colonnes de 80px fixes */
-    grid-template-columns: repeat(5, 80px); 
-    gap: 40px 30px; /* 40px entre les étagères, 30px entre les K7 */
+    /* 5 colonnes de 70px fixes */
+    grid-template-columns: repeat(5, 70px); 
+    /* Espace réduit : 40px entre les étagères, 10px entre les K7 */
+    gap: 40px 10px; 
     padding: 50px; 
-    max-width: 1200px; 
+    max-width: 1000px; 
     margin: 0 auto; 
-    justify-content: center; /* Pour centrer le bloc de 5 au milieu */
+    justify-content: center; /* Centre les 5 cassettes au milieu */
 }
 
-/* 3. LA CASSETTE ET LE TITRE : Entre le rayon et la pagination */
+/* 3. LA CASSETTE */
 .vhs-case { 
     position: relative; 
-    width: 80px; 
-    height: 420px; 
+    width: 70px; 
+    height: 450px; /* Hauteur fixe pour éviter que ce soit coupé */
     transition: transform 0.3s ease;
 }
 
 .vhs-case:hover {
-    transform: translateY(-15px) scale(1.05);
+    transform: translateY(-20px) scale(1.05); /* Effet "sortir du rayon" */
     z-index: 10;
+}
+
+.vhs-link {
+    text-decoration: none;
+    display: block;
+    height: 100%;
 }
 
 .vhs-spine { 
@@ -43,23 +50,26 @@ body {
     height: 100%; 
     background: #222; 
     border-radius: 2px;
-    box-shadow: 10px 10px 20px rgba(0,0,0,0.8);
+    box-shadow: 8px 0 15px rgba(0,0,0,0.7);
     overflow: hidden;
 }
 
+/* 4. TEXTURE ET TITRE */
 .texture-overlay { 
     position: absolute;
     width: 100%; 
     height: 100%; 
-    object-fit: cover; 
-    opacity: 0.8;
+    /* 'fill' force l'image à prendre toute la place sans être coupée */
+    object-fit: fill; 
     z-index: 1;
+    opacity: 0.9;
 }
 
 .vhs-info { 
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     display: flex; 
+    flex-direction: column;
     align-items: center; 
     justify-content: center; 
     z-index: 2;
@@ -68,30 +78,33 @@ body {
 .vhs-title { 
     writing-mode: vertical-rl; 
     transform: rotate(180deg); 
-    font-size: 1.1em; /* Taille réduite pour ne pas déborder */
-    color: #eee; 
+    font-size: 1.1rem; 
+    color: #f0f0f0; 
     text-transform: uppercase; 
     letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+    text-shadow: 2px 2px 4px rgba(0,0,0,1);
     white-space: nowrap;
+    /* Marge de sécurité pour que le texte ne touche pas les bords */
+    padding: 30px 0;
 }
 
 .vhs-sticker { 
     position: absolute; 
-    bottom: 20px; 
+    bottom: 15px; 
     left: 50%; 
     transform: translateX(-50%); 
-    background: #ddd; 
+    background: #e0e0e0; 
     color: #111; 
-    padding: 2px 6px; 
+    padding: 2px 5px; 
     font-family: monospace; 
-    font-size: 0.65em; 
+    font-size: 0.6rem; 
     font-weight: bold;
     z-index: 3;
+    border-radius: 1px;
 }
 
-/* 4. La pagination (Tout en bas du fichier) */
+/* 5. PAGINATION (En bas) */
 .pagination {
     text-align: center;
-    padding: 40px;
+    padding: 50px;
 }
