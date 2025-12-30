@@ -10,9 +10,7 @@ function displayVideos() {
             <a href="video.html?id=${film.id}" style="text-decoration: none;">
                 <div class="vhs-box">
                     <img src="images/vhs-texture.png" class="vhs-tranche-img">
-                    
                     <img src="${film.image}" class="vhs-poster">
-                    
                     <span class="vhs-title">${film.titre}</span>
                 </div>
             </a>
@@ -20,5 +18,4 @@ function displayVideos() {
         grid.appendChild(card);
     });
 }
-
 displayVideos();
