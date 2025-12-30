@@ -87,7 +87,7 @@ body {
     white-space: nowrap;
 
     /* On utilise margin au lieu de padding pour forcer le mouvement */
-    margin-top: 150px !important; 
+    margin-top: 95px !important; 
 }
 
 /* --- PAGINATION --- */
