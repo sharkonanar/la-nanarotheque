@@ -50,37 +50,33 @@
         <div class="screen-frame" id="player-container"></div>
     </div>
 
-    <script src="videos.js"></script>
+   <script>
+    const params = new URLSearchParams(window.location.search);
+    const filmId = params.get('id');
+    
+    if (typeof videos !== 'undefined') {
+        const film = videos.find(v => v.id === filmId);
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const filmId = params.get('id');
-        
-        // On vérifie si le fichier videos.js a bien chargé la variable "videos"
-        if (typeof videos !== 'undefined') {
-            const film = videos.find(v => v.id === filmId);
+        if (film) {
+            // On affiche le titre
+            document.getElementById('movie-title').textContent = film.titre;
 
-            if (film) {
-                document.getElementById('movie-title').textContent = film.titre;
+            // ON UTILISE "videoUrl" (car c'est le nom dans ton videos.js)
+            let finalUrl = film.videoUrl;
 
-                // On s'assure que le lien YouTube est bien au format "embed"
-                let videoUrl = film.url;
-                if (videoUrl.includes("watch?v=")) {
-                    videoUrl = videoUrl.replace("watch?v=", "embed/");
-                }
-
-                document.getElementById('player-container').innerHTML = `
-                    <iframe 
-                        src="${videoUrl}" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>`;
-            } else {
-                document.getElementById('movie-title').textContent = "Film non trouvé (ID: " + filmId + ")";
-            }
+            // On injecte l'iframe
+            document.getElementById('player-container').innerHTML = `
+                <iframe 
+                    src="${finalUrl}" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>`;
         } else {
-            document.getElementById('movie-title').textContent = "Erreur : le fichier videos.js est introuvable";
+            document.getElementById('movie-title').textContent = "Film non trouvé";
         }
-    </script>
+    } else {
+        document.getElementById('movie-title').textContent = "Erreur : videos.js non chargé";
+    }
+</script>
 </body>
 </html>
