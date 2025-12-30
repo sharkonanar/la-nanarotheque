@@ -1,5 +1,13 @@
 const videos = [
    {
+        id: "6",
+        titre: "Ninja Condor 13",
+        resume: "Une épopée incroyable.",
+        image: "images/ninjacondor.jpg",
+        videoUrl: "https://www.youtube.com/embed/t1JRYmttYko&list=PLUyDrJiYxNOZpDvfardgHhTTMSpiNsjvY&index=5",
+        description: "Les aventures d' un ninja sur fond de musique Bontempi... On cherche toujours le condor... Sinon y ' des aaaah et des yaaaaaa..."
+    },
+   {
         id: "5",
         titre: "Challenge the ninja",
         resume: "Une épopée incroyable.",
