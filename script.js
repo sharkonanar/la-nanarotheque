@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
     const grille = document.getElementById('video-grid');
     
+    // Vérifie que le tableau 'videos' existe bien
     if (typeof videos !== 'undefined') {
         grille.innerHTML = ""; 
 
@@ -14,8 +15,6 @@ window.addEventListener('load', function() {
                             <div class="vhs-info">
                                 <span class="vhs-title">${film.titre}</span>
                             </div>
-                            
-                            <div class="vhs-sticker">N-${film.id.substring(0,3).toUpperCase()}</div>
                         </div>
                     </a>
                 </div>
