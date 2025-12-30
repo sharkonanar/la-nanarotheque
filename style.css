@@ -1,90 +1,79 @@
-/* RESET DE BASE */
-body { 
-    background: #050505; 
-    color: white; 
-    margin: 0; 
-    font-family: sans-serif; 
-}
+/* RESET COMPLET */
+* { box-sizing: border-box; }
+body { background: #050505; color: white; margin: 0; font-family: sans-serif; }
 
-/* BANNIÈRE */
-.banner img { 
-    width: 100%; 
-    max-width: 1200px; 
-    display: block; 
-    margin: 0 auto; 
-}
+.banner img { width: 100%; max-width: 1200px; display: block; margin: 0 auto; }
 
-/* LE MEUBLE (GRID) : 5 colonnes par rangée */
+/* LE MEUBLE : On fixe la largeur max pour que 5 colonnes tiennent sans s'écraser */
 #video-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
-    gap: 15px; /* Espace entre les cassettes */
-    padding: 40px 20px;
-    max-width: 1300px; /* Élargi pour que les tranches ne soient pas bouffées */
+    gap: 20px;
+    padding: 40px;
+    max-width: 1400px; /* Plus large pour laisser respirer les tranches */
     margin: 0 auto;
 }
 
-/* LA TRANCHE (BOÎTE VHS) */
+/* LA TRANCHE : On utilise l'aspect-ratio pour qu'elle ne soit JAMAIS déformée */
 .vhs-box {
     position: relative;
     width: 100%;
-    height: 380px; /* Hauteur fixe pour toutes les cassettes */
-    background: #111;
+    aspect-ratio: 1 / 4.5; /* Définit une forme de tranche haute et fine (1 large pour 4.5 haut) */
+    background: #000;
     border: 1px solid #333;
-    overflow: hidden; /* Empêche tout débordement */
+    overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-/* LA TEXTURE VHS (vhs-texture.png) */
+/* LA TEXTURE : Elle doit remplir TOUTE la boîte sans laisser de vide */
 .vhs-tranche-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* La texture remplit toute la tranche */
+    height: 100.5%; /* On dépasse d'un poil pour éviter les micro-lignes vides */
+    object-fit: fill; /* Force l'image à s'étirer exactement sur la taille de la tranche */
     z-index: 1;
 }
 
-/* LE TITRE SUR LA TRANCHE (Vertical) */
+/* LE TITRE : Centré et pivoté */
 .vhs-title {
     position: absolute;
     z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    width: 350px; /* Aligné sur la hauteur de la boîte */
+    width: 400%; /* Le texte peut être long, il tourne sur lui-même */
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-    text-shadow: 2px 2px 5px #000;
+    text-shadow: 2px 2px 4px #000;
     pointer-events: none;
-    font-size: 0.9rem;
+    white-space: nowrap; /* Empêche le titre de revenir à la ligne */
 }
 
-/* L'AFFICHE (Celle qui apparaît au survol) */
+/* L'AFFICHE : On utilise COVER ici pour qu'elle remplisse toute la tranche au survol */
 .vhs-poster {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* L'affiche est visible ENTIÈRE sans être coupée */
-    background-color: #000; /* Fond noir si l'affiche est plus étroite */
+    object-fit: cover; 
     opacity: 0;
     z-index: 3;
     transition: opacity 0.3s ease;
 }
 
-/* EFFET AU SURVOL */
+/* SURVOL */
 .vhs-box:hover {
-    transform: scale(1.05); /* Zoom léger pour l'effet sélection */
-    border-color: #ff0000; /* Bordure rouge au survol */
+    transform: scale(1.05);
+    border-color: red;
     z-index: 10;
 }
 
 .vhs-box:hover .vhs-poster {
-    opacity: 1; /* L'affiche remplace la tranche */
+    opacity: 1;
 }
