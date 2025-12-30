@@ -6,21 +6,22 @@ function displayVideos() {
     grid.innerHTML = ''; 
 
     videos.forEach(film => {
-        // Création du lien qui englobe la jaquette
-        const link = document.createElement('a');
-        link.href = `video.html?id=${film.id}`;
-        link.className = 'vhs-case';
-
-        link.innerHTML = `
-            <img src="${film.image}" alt="${film.titre}" onerror="this.src='https://via.placeholder.com/200x300?text=Image+Manquante'">
-            <div class="vhs-info">
-                <h3>${film.titre}</h3>
-            </div>
+        // On crée la boîte de la cassette
+        const card = document.createElement('div');
+        
+        // On insère le lien et le design tranche
+        card.innerHTML = `
+            <a href="video.html?id=${film.id}" style="text-decoration: none; color: inherit;">
+                <div class="vhs-box">
+                    <img src="${film.image}" alt="${film.titre}" class="vhs-poster">
+                    <span class="vhs-title">${film.titre}</span>
+                </div>
+            </a>
         `;
         
-        grid.appendChild(link);
+        grid.appendChild(card);
     });
 }
 
-// Lancement au chargement de la page
-window.onload = displayVideos;
+// On lance l'affichage
+displayVideos();
