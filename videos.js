@@ -5,7 +5,7 @@ const videos = [
         resume: "Une épopée incroyable avec des motards aux looks SM et des flics pas gentils qu' ils sont méchants.",
         image: "images/guerriersbronx.jpg",
         videoUrl: "https://www.youtube.com/embed/cCzi0HWhras",
-        note: 4
+        description: "Un chef de gang version SM soft rentrer dans le lard de flics nettoyeurs pas gentils qu' ils sont méchants et veulent exterminer les gueux qui polluent le quartier en ruine qu' on appelle le Bronx. les joies du capitalisme en somme...
     },
     {
         id: "2",
