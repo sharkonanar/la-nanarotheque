@@ -56,7 +56,7 @@ html, body {
 .vhs-title {
     position: absolute;
     z-index: 2;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
     width: 320px; 
