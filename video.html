@@ -58,31 +58,23 @@
 
     <script src="videos.js"></script>
 
-    <script>
-        // 1. Récupération de l'ID dans l'URL
+   <script>
         const params = new URLSearchParams(window.location.search);
         const filmId = params.get('id');
         
-        // 2. Vérification si la liste videos est chargée
         if (typeof videos !== 'undefined') {
             const film = videos.find(v => v.id === filmId);
-
             if (film) {
-                // Mise à jour du titre
                 document.getElementById('movie-title').textContent = film.titre;
-
-                // Injection de l'iframe YouTube
                 document.getElementById('player-container').innerHTML = `
-                    <iframe 
-                        src="${film.videoUrl}" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>`;
-            } else {
-                document.getElementById('movie-title').textContent = "Film non trouvé";
+                    <iframe src="${film.videoUrl}" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                    <p style="color:gray; margin-top:20px; font-style:italic;">
+                        ${film.description || ""}
+                    </p>`;
             }
-        } else {
-            document.getElementById('movie-title').textContent = "Erreur : videos.js non chargé";
         }
     </script>
 </body>
