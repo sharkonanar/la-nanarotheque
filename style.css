@@ -74,7 +74,7 @@ body {
 
 .vhs-title { 
     position: absolute; /* On le place précisément */
-    top: 60px; /* <--- AJUSTE CE CHIFFRE ICI (ex: 65, 70, 75...) */
+    top: 50px; /* <--- AJUSTE CE CHIFFRE ICI (ex: 65, 70, 75...) */
     left: 50%;
     transform: translateX(-50%) rotate(180deg);
     
