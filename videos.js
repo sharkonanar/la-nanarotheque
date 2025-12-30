@@ -11,8 +11,7 @@ const videos = [
         id: "2",
         titre: "Les nouveaux barbares",
         resume: "La société s' est effrondrée et le monde est devenu une immense gravière où les survivants. Le plexiglas est devenu la norme et les survivants se font victimiser par des néo-nazis punks azdoradeur de voiturettes de golf",
-        image: "images/tomate.jpg",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        note: 3
+        image: "images/nouveauxbarbares.jpg",
+        videoUrl: "https://www.youtube.com/embed/4XTC-8IaIos",
     }
 ];
