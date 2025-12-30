@@ -4,7 +4,7 @@ const videos = [
         titre: "Les guerriers du Bronx 2",
         resume: "Une épopée incroyable avec des motards aux looks SM et des flics pas gentils qu' ils sont méchants.",
         image: "images/guerriersbronx.jpg",
-        videoUrl: "https://www.youtube.com/embed/p3mH9G1shG4" ,
+        videoUrl: "https://www.youtube.com/embed/cCzi0HWhras" ,
         note: 4 // <--- Ajoute la note ici (de 1 à 5)
     },
     {
