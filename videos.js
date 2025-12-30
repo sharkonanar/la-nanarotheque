@@ -13,6 +13,6 @@ const videos = [
         resume: "La société s' est effrondrée et le monde est devenu une immense gravière où les survivants. Le plexiglas est devenu la norme et les survivants se font victimiser par des néo-nazis punks azdoradeur de voiturettes de golf",
         image: "images/nouveauxbarbares.jpg",
         videoUrl: "https://www.youtube.com/embed/4XTC-8IaIos",
-        description: "La société s' est effrondrée et le monde est devenu une immense gravière où les survivants. Le plexiglas est devenu la norme et les survivants se font victimiser par des néo-nazis punks azdoradeur de voiturettes de golf",
+        description: "La société s' est effrondrée et le monde est devenu une immense gravière. Le plexiglas est devenu la norme et les survivants se font victimiser par des néo-nazis punks adoradeurs de voiturettes de golf",
     },
 ];
