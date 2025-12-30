@@ -6,32 +6,21 @@ body {
     font-family: sans-serif; 
 }
 
-.banner {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-}
-.banner img { 
-    max-width: 1000px; 
-    width: 90%;
-}
-
-/* LE MEUBLE : 5 tranches centrées */
+/* LE MEUBLE */
 #video-grid {
     display: grid;
-    /* On passe à 140px pour élargir un peu et détasser la texture */
-    grid-template-columns: repeat(5, 140px); 
+    grid-template-columns: repeat(5, 130px); /* Largeur fixe pour les 5 colonnes */
     justify-content: center; 
-    gap: 15px;
+    gap: 20px;
     padding: 40px;
     margin: 0 auto;
 }
 
-/* LA TRANCHE (BOÎTE VHS) */
+/* LA BOÎTE : Elle s'adapte à l'image qu'elle contient */
 .vhs-box {
     position: relative;
-    width: 140px; 
-    height: 380px; 
+    width: 130px; 
+    /* On ne fixe plus la hauteur ici, c'est l'image qui va la pousser */
     background: #000;
     border: 1px solid #333;
     overflow: hidden; 
@@ -39,16 +28,11 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* LA TEXTURE (vhs-texture.png) */
+/* LA TEXTURE : Elle s'affiche ENTIÈRE et dicte la taille de la boîte */
 .vhs-tranche-img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: block;
     width: 100%;
-    height: 100%;
-    /* "cover" évite de tasser, "50% 50%" centre l'image parfaitement */
-    object-fit: cover; 
-    object-position: center;
+    height: auto; /* L'image garde ses proportions d'origine sans être bouffée */
     z-index: 1;
 }
 
@@ -59,7 +43,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    width: 350px; 
+    width: 250px; /* Réduit pour ne pas sortir si la cassette est courte */
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
@@ -67,7 +51,7 @@ body {
     text-shadow: 2px 2px 5px #000;
     pointer-events: none;
     white-space: nowrap;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* L'AFFICHE (Survol) */
@@ -77,20 +61,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; 
-    background-color: #000;
+    object-fit: cover; /* Elle prend toute la place de la tranche dispo */
     opacity: 0;
     z-index: 3;
     transition: opacity 0.3s ease;
 }
 
-/* EFFET SURVOL */
+/* SURVOL */
 .vhs-box:hover {
-    transform: scale(1.05);
-    border-color: #ff0000;
+    transform: scale(1.08);
+    border-color: red;
     z-index: 10;
 }
-
 .vhs-box:hover .vhs-poster {
     opacity: 1;
 }
