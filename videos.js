@@ -2,6 +2,7 @@ const videos = [
    {
         id: "10",
         titre: "Réveillon sanglant",
+        genre: "horreur",
         resume: "Une épopée incroyable.",
         image: "images/reveillonsanglant.jpg",
         videoUrl: "https://www.youtube.com/embed/8UnhYl4LQqM",
@@ -10,6 +11,7 @@ const videos = [
    {
         id: "9",
         titre: "Nail Gun Massacre",
+        genre: "horreur",
         resume: "Une épopée incroyable.",
         image: "images/nailgun.jpg",
         videoUrl: "https://www.youtube.com/embed/N9P7CXVu8Fg",
@@ -18,6 +20,7 @@ const videos = [
     {
         id: "8",
         titre: "Jaguar Force",
+        genre: "arts-martiaux",
         resume: "Une épopée incroyable.",
         image: "images/jaguarforce.jpg",
         videoUrl: "https://www.youtube.com/embed/D5Kp-cTE3iQ",
@@ -26,6 +29,7 @@ const videos = [
     {
         id: "7",
         titre: "L' humanoïde",
+        genre: "fantastique",
         resume: "Une épopée incroyable.",
         image: "images/lhumanoide.jpg",
         videoUrl: "https://www.youtube.com/embed/7t5HAvj_Fjg",
@@ -34,6 +38,7 @@ const videos = [
    {
         id: "6",
         titre: "Ninja Condor 13",
+       genre: "arts-martiaux",
         resume: "Une épopée incroyable.",
         image: "images/ninjacondor.jpg",
         videoUrl: "https://www.youtube.com/embed/t1JRYmttYko&list=PLUyDrJiYxNOZpDvfardgHhTTMSpiNsjvY&index=5",
@@ -42,6 +47,7 @@ const videos = [
    {
         id: "5",
         titre: "Challenge the ninja",
+        genre: "arts-martiaux",
         resume: "Une épopée incroyable.",
         image: "images/challengeninja.jpg",
         videoUrl: "https://www.youtube.com/embed/PLUyDrJiYxNOZpDvfardgHhTTMSpiNsjvY",
@@ -58,6 +64,7 @@ const videos = [
    {
         id: "3",
         titre: "Eaux Sauvages",
+        genre: "indefinissable",
         resume: "Une épopée incroyable.",
         image: "images/eauxsauvages.jpg",
         videoUrl: "https://www.youtube.com/embed/928HEe3SWZo",
@@ -66,6 +73,7 @@ const videos = [
     {
         id: "1",
         titre: "Les guerriers du Bronx 2",
+        genre: "fantastique",
         resume: "Une épopée incroyable avec des motards aux looks SM et des flics pas gentils qu' ils sont méchants.",
         image: "images/guerriersbronx.jpg",
         videoUrl: "https://www.youtube.com/embed/cCzi0HWhras",
@@ -74,6 +82,7 @@ const videos = [
     {
         id: "2",
         titre: "Les nouveaux barbares",
+        genre: "fantastique",
         resume: "La société s' est effrondrée et le monde est devenu une immense gravière où les survivants. Le plexiglas est devenu la norme et les survivants se font victimiser par des néo-nazis punks azdoradeur de voiturettes de golf",
         image: "images/nouveauxbarbares.jpg",
         videoUrl: "https://www.youtube.com/embed/4XTC-8IaIos",
