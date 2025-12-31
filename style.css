@@ -207,7 +207,7 @@ html, body {
     font-family: sans-serif; 
     
     /* Style pour que ce soit élégant */
-    font-size: 0.85em;
+    font-size: 0.70em;
     font-weight: bold;
     letter-spacing: 1px;
     clear: both; /* Sécurité pour être sûr qu'il se place bien sous la grille */
