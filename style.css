@@ -164,7 +164,7 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background: rgba(0, 0, 0, 0.8);
+    background: #414143;
     padding: 10px;
     border: 2px solid #DFAF2C;
     border-radius: 15px;
