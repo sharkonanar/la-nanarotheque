@@ -1,5 +1,13 @@
 const videos = [
    {
+        id: "10",
+        titre: "Réveillon sanglant",
+        resume: "Une épopée incroyable.",
+        image: "images/reveillonsanglant.jpg",
+        videoUrl: "https://www.youtube.com/embed/8UnhYl4LQqM",
+        description: "Une bande de jeunes se fait courser par des forains tout crados et arrivent sur une île où qui y' a pleins de trucs cheloux... Entre deux calins, ils vont tenter de s' en sortir..."
+    },
+   {
         id: "9",
         titre: "Nail Gun Massacre",
         resume: "Une épopée incroyable.",
