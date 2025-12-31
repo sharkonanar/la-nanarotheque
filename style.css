@@ -13,7 +13,7 @@ html, body {
 /* LE MEUBLE : Reste identique (5 tranches fines) */
 #video-grid {
     display: grid;
-    grid-template-columns: repeat(7, 65px); 
+    grid-template-columns: repeat(7, 75px); 
     justify-content: center; 
     gap: 0px; 
     padding: 40px;
