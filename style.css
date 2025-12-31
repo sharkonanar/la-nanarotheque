@@ -151,3 +151,41 @@ html, body {
     border-top: 1px solid #333;
     padding-top: 15px;
 }
+/* Le menu qui flotte à droite */
+.filter-menu-lateral {
+    position: fixed;   /* Fixé à l'écran */
+    right: 30px;       /* 30px du bord droit */
+    top: 50%;          /* Centré verticalement */
+    transform: translateY(-50%); /* Ajustement pour le centrage vertical */
+    display: flex;
+    flex-direction: column; /* Boutons les uns sous les autres */
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.9); /* Fond noir transparent */
+    padding: 15px;
+    border: 2px solid #DFAF2C; /* Contour ocre */
+    z-index: 100;      /* Passe devant le reste */
+}
+
+.filter-menu-lateral h3 {
+    color: #DFAF2C;
+    margin: 0 0 10px 0;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 14px;
+}
+
+.filter-menu-lateral button {
+    background: #DFAF2C;
+    color: black;
+    border: 1px solid #000;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 10px;
+    transition: 0.2s;
+}
+
+.filter-menu-lateral button:hover {
+    background: white;
+}
