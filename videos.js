@@ -1,4 +1,12 @@
 const videos = [
+   {
+        id: "9",
+        titre: "Nail Gun Massacre",
+        resume: "Une épopée incroyable.",
+        image: "images/nailgun.jpg",
+        videoUrl: "https://www.youtube.com/embed/N9P7CXVu8Fg",
+        description: "L' histoire émouvante d' un serial killer adepte de cloutage mais incompris du monde qui l' entoure"
+    },
     {
         id: "8",
         titre: "Jaguar Force",
