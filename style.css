@@ -15,7 +15,7 @@ html, body {
     display: grid;
     grid-template-columns: repeat(7, 100px); 
     justify-content: center; 
-    gap: 8px; 
+    gap: 5px; 
     padding: 40px;
     margin: 0 auto;
 }
